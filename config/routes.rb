@@ -38,14 +38,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :items do
-    resources :comments, only: :create
-  end  
 
   get 'mypages/card'
   resources :users, only: :new
   resources :items do
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
   end
 
