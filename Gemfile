@@ -94,3 +94,4 @@ gem 'active_hash'
 gem "gretel"
 gem 'payjp'
 gem 'breadcrumbs_on_rails'
+gem 'ransack'

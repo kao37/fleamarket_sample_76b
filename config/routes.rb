@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   root 'items#index'
   namespace :items do
     resources :searches, only: :index
+    get 'searches/ransack'
   end
+  
   resources :categories, only: [:index, :show]
   get 'mypages/index'
   get 'mypages/logout'
