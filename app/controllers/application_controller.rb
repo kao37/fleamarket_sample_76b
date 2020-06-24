@@ -23,8 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search
-    @q = Item.ransack(params[:q])
-    @search = @q.result.includes(:images).order(updated_at: "DESC")
+   
   end
 
   def production?

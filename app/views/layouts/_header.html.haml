@@ -11,38 +11,6 @@
           = form.button type: "submit",class: "search-btn" do
             .search-btn__box
               = image_tag  "icon-search 1.png", class: "icon-search"
-    .ransack
-      = search_form_for @q ,url:items_searches_ransack_path do |f| 
-        .ransack--order
-        .ransack__name
-          = f.label :キーワードを追加する
-          = f.search_field :name_cont
-        .ransack__category
-          = f.label :カテゴリーを選択する
-          = f.select :category_id_eq,content_tag(:option,'選択してください', value: "") + options_from_collection_for_select(@parents, :id, :name, @q.category_id_eq)
-        .ransack__brand
-          = f.label :ブランド名から探す
-          = f.select :brand_id_eq,content_tag(:option,'選択してください', value: "") + options_from_collection_for_select(Brand.all, :id, :name, @q.brand_id_eq)     
-        .ransack__size
-          = f.label :サイズを指定する  
-          = f.collection_check_boxes :size_in, Item.all , :size, :size, {checked:@q.size_in}
-        .ransack__price
-          = f.label :価格
-          = f.number_field :price_gteq
-          以上〜
-          = f.number_field :price_lt 
-          未満 
-        .ransack__status
-          = f.label :商品の状態
-          = f.collection_check_boxes :status_in, Item.all , :status, :status, {checked:@q.status_in}
-        .ransack__cost
-          = f.label :配送料の負担
-          = f.collection_check_boxes :cost_in, Item.all , :cost, :cost, {checked:@q.cost_in}
-          = f.submit 
-        -# .ransack__sold
-        -#   = f.label :販売状況
-        -#   = f.collection_check_boxes :sold_in, Item.all , :id, :sold, {checked:@q.sold_in}
-        -#   = f.submit       
     .nav
       %ul.left-box
         %li.left-box--first 
