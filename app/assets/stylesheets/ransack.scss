@@ -1,0 +1,56 @@
+.search-container{
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  background-color:  #f8f8f8;
+}
+@mixin ransack_box{
+  height: 49px;
+  width: 191px;
+}
+.ransack{
+  width: 40%;
+  padding: 20px;
+  margin-right: 100px;
+  &__order{
+    height: 60px;
+    #q_sorts{
+      @include ransack_box;
+    }
+  }
+  &__name{
+    padding-top: 10px;
+    label{
+    }
+    #q_name_cont{
+      display: block;
+      @include ransack_box;
+    }
+  }
+  &__category{
+    padding-top: 10px;
+    #q_category_id_eq{
+      display: block;
+      @include ransack_box;
+    }
+  }
+  &__brand{
+    padding-top: 10px;
+    
+  }
+  &__size{
+    padding-top: 10px;
+  }
+  &__price{
+    padding-top: 10px;
+  }
+  &__status{
+    padding-top: 10px;
+  }
+  &__cost{
+    padding-top: 10px;
+  }
+}
+  
+ 
+    
