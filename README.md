@@ -7,17 +7,17 @@ fleamarket_sample_76b DB設計
 ## Items テーブル
 |Column|Type|Options|
 |------|----|-------|
-|name(商品名)|string|null: false| 
-|price(値段)|integer|null: false|
-|description(商品解説)|string| null: false, foreign_key: true |
-|user_id(出品者)|references | null: false, foreign_key: true |
-|category_id(カテゴリーID)｜references | null:false, foreign_key: true|
-|brand_id(ブランドID)|references | null: false, foreign_key: true |
-|size(商品のサイズ)|string | null:false|
-|status(商品の状態#)|string | null:false |
-|cost(配送料負担)|string|null:false |
-|days(発送日の目安)|string| null:false|
-
+|name|string|null: false| 
+|price|integer|null: false|
+|description|string|null: false, foreign_key: true|
+|user_id|references |null: false, foreign_key: true|
+|category_id|references|null:false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
+|size|string|null:false|
+|status|string|null:false|
+|cost|string|null:false|
+|area|string|null:false|
+|days|string| null:false|
 
 ### Associatio
 - has_many :comments
@@ -32,13 +32,14 @@ fleamarket_sample_76b DB設計
 ## Comments テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true |
-|item_id|references|null: false, foreign_key: true |
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |text|string|null: false|
 
 ### Association
 - belongs_to :item
 - belongs_to :user
+
 
 
 ## Usersテーブル
@@ -47,6 +48,10 @@ fleamarket_sample_76b DB設計
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |nickname|string|null: false|
+|encrypted_password|default|null: false|
+|reset_password_token|||
+|reset_password_sent_at|||
+|remember_created_at|||
 
 ### Association
 - has_one : address
@@ -57,6 +62,7 @@ fleamarket_sample_76b DB設計
 - has_one :card
 
 
+
 ##  Identification(本人確認)テーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -65,12 +71,12 @@ fleamarket_sample_76b DB設計
 |familyname_kana|string|null: false|
 |firstname_kana|string|null: false|
 |birth_date|date|null: false|
-|user_id(出品者) | references | null: false |
-
+|user_id|references| null: false|
 
 ### Association
 - has_one : address
 - belongs_to: user
+
 
 
 ## Addressテーブル
@@ -82,33 +88,36 @@ fleamarket_sample_76b DB設計
 |address_street|string|null: false|
 |address_building|string|
 |phone_number|string|
-|user| references| null:false|
-
+|user_id|references| null:false|
 
 ### Association
 - belongs_to :user
 - belongs_to :identification
+
+
 
 ## Sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |provider|string||
 |uid|string||
-|user| references| foreign_key:true|
-
+|user|references|foreign_key:true|
 
 ### Association
 - belongs_to :user
 
 
+
 ## Cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null:false, foreign_key:true | 
+|user_id|references|null:false,foreign_key:true| 
 |customer_id|string|null:false|
 |card_id|string|null:false|
+
 ### Association
 - belongs_to : user
+
 
 
 ## Favoritesテーブル
@@ -123,34 +132,33 @@ fleamarket_sample_76b DB設計
 
 
 
-
-
 ## Categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null;false|
 |ancestry|string|null;false|
+
 ### Association
 - has_many :items
 - has_ancestry
 
 
 
-
 ## Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name(商品ブランド名)|string|null;false |
+|name(商品ブランド名)|string|null;false|
 
 ### Association
 - has_many :items
+
 
 
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
-|item_id|references|null: false, foreign_key: true |
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
