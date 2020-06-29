@@ -1,7 +1,7 @@
 # README
 fleamarket_sample_76b DB設計
 
-<img width="927" alt="スクリーンショット 2020-06-12 12 32 20" src="https://user-images.githubusercontent.com/64791353/84462767-d1a6aa80-acaa-11ea-8023-752229816f91.png">
+<img width="927" alt="スクリーンショット 2020-06-12 12 32 20" src=https://i.gyazo.com/1f13ff0243733a840943c29b751b322d.png">
 
 
 ## Items テーブル
